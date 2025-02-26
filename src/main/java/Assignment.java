@@ -7,28 +7,40 @@ public class Assignment {
     public static final Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
-      String repeated = repeatWord("", 0);
+      String repeated = repeatWord("hello", 3);
       System.out.println(repeated);
-      String pyramid = createPyramid(0);
-      String FizzBuzz = countTo(3);
-      
-    }
+      String pyramid = createPyramid(3);
+      String FizzBuzz = countTo(3);}
     
     /**
      * Exercise 1: Word Repeater
      * Repeat the provided word the specified number of times
      * Example: word="hello" times=3 → "hello hello hello"
      */
-    public static String repeatWord(String word, int times) {
        
+     
         // TODO: Implement this method
         // Use a while loop to build a string that repeats the word
         // Words should be separated by single spaces
         // No trailing space at the end
-        return "test";
+        
+
+         public static String repeatWord(String word, int times) {
+        String result = "";
+        int count = 0;
+        
+        while (count < times) {
+            if (count > 0) {
+                result += " ";  // Add a space before adding the word (except for the first one)
+            }
+            result += word;
+            count++;
+        }
+        
+        return result;}
 
     
-    }
+    
     
     /**
      * Exercise 2: Number Pyramid
@@ -38,14 +50,31 @@ public class Assignment {
      * 22
      * 333
      */
-    public static String createPyramid(int maxNumber) {
-        // TODO: Implement this method
+    
         // Use nested while loops:
         // - Outer loop for each row
         // - Inner loop to repeat the number
         // Use \n for newlines
-        return "";
-    }
+        
+
+        public static String createPyramid(int maxNumber) {
+        StringBuilder result = new StringBuilder();
+        int row = 1;
+        
+        while (row <= maxNumber) {
+            int repeat = 1;
+            while (repeat <= row) {
+                result.append(row);
+                repeat++;
+            }
+            result.append("\n");  // Newline after each row
+            row++;
+        }
+        
+        return result.toString();}
+    
+
+    
     
  
     
@@ -58,14 +87,39 @@ public class Assignment {
      * - Multiples of both with "FizzBuzz"
      * Example: countTo(6) → "1 2 Fizz 4 Buzz Fizz"
      */
-    public static String countTo(int maxNumber) {
+    
         // TODO: Implement this method
         // Use a while loop
         // Use string concatenation
         // Numbers/words should be separated by spaces
         // No trailing space at the end
-        return "";
+        
+
+         public static String countTo(int maxNumber) {
+        StringBuilder result = new StringBuilder();
+        int count = 1;
+        
+        while (count <= maxNumber) {
+            if (count > 1) {
+                result.append(" ");  // Add a space between numbers and words
+            }
+            
+            if (count % 3 == 0 && count % 5 == 0) {
+                result.append("FizzBuzz");
+            } else if (count % 3 == 0) {
+                result.append("Fizz");
+            } else if (count % 5 == 0) {
+                result.append("Buzz");
+            } else {
+                result.append(count);
+            }
+            
+            count++;
+        }
+        
+        return result.toString();
     }
+}
+    
     
   
-}
